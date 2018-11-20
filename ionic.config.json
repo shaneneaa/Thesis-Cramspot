@@ -1,0 +1,7 @@
+{
+  "name": "cramspot",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
