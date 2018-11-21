@@ -1,4 +1,4 @@
-<ion-tabs>
+<ion-tabs >
 
   <ion-tab tab="home">
     <ion-router-outlet name="home"></ion-router-outlet>
@@ -9,22 +9,30 @@
   <ion-tab tab="contact">
     <ion-router-outlet name="contact"></ion-router-outlet>
   </ion-tab>
+  <ion-tab tab="more">
+    <ion-router-outlet name="more"></ion-router-outlet>
+  </ion-tab>
 
-  <ion-tab-bar slot="bottom">
+  <ion-tab-bar slot="bottom" color="mainBtn">
 
     <ion-tab-button tab="home" href="/tabs/(home:home)">
       <ion-icon name="home"></ion-icon>
-      <ion-label>Spots</ion-label>
+      <ion-label>Workspace</ion-label>
     </ion-tab-button>
 
     <ion-tab-button tab="about" href="/tabs/(about:about)">
-      <ion-icon name="information-circle"></ion-icon>
-      <ion-label>About</ion-label>
+      <ion-icon name="md-browsers"></ion-icon>
+      <ion-label>Feed</ion-label>
     </ion-tab-button>
 
     <ion-tab-button tab="contact" href="/tabs/(contact:contact)">
-      <ion-icon name="contacts"></ion-icon>
-      <ion-label>Contact</ion-label>
+      <ion-icon name="notifications"></ion-icon>
+      <ion-label>Alert</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="more" href="/tabs/(contact:contact)">
+      <ion-icon name="ios-more"></ion-icon>
+      <ion-label>more</ion-label>
     </ion-tab-button>
 
   </ion-tab-bar>
