@@ -13,11 +13,11 @@
       </ion-card-header>
       <ion-card-content>
           <p>
-            <ion-icon name="ios-people"></ion-icon>Capacity: 10 <br>
-            <ion-icon name="ios-laptop"></ion-icon>Device: 2 computers <br>
-            31 Otero Mabayuan Olongapo City
+            <ion-icon name="ios-people"></ion-icon>: 10 <br>
+            <ion-icon name="ios-laptop"></ion-icon>: 2 computers <br>
+            <ion-icon name="ios-pin"></ion-icon>:31 Otero Mabayuan Olongapo City
           </p>
-          <ion-button color="main" size="small" fill="clear">Check Availability</ion-button>
+          <ion-button color="main" size="small" fill="clear">Contact User</ion-button>
           
       </ion-card-content>
   </ion-card>
@@ -29,18 +29,18 @@
       </ion-card-header>
       <ion-card-content>
           <p>
-            <ion-icon name="ios-people"></ion-icon>Capacity: 15 <br>
-            <ion-icon name="ios-laptop"></ion-icon>Device: 0 <br>
-            16 Gordon Avenue Olongapo City
+            <ion-icon name="ios-people"></ion-icon>: 10 <br>
+            <ion-icon name="ios-laptop"></ion-icon>: 2 computers <br>
+            <ion-icon name="ios-pin"></ion-icon>:31 Otero Mabayuan Olongapo City
           </p>
-          <ion-button color="main" size="small" fill="clear">Check Availability</ion-button>
+          <ion-button color="main" size="small" fill="clear">Contact User</ion-button>
           
       </ion-card-content>
   </ion-card>
 </ion-content>
 
 <ion-fab vertical="bottom" horizontal="end" slot="fixed" >
-  <ion-fab-button color="main">
+  <ion-fab-button color="main" (click)="presentModal()">
     <ion-icon name="add"></ion-icon>
   </ion-fab-button>
 </ion-fab>

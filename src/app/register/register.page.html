@@ -1,36 +1,37 @@
 <ion-img class="logo-title" src="https://lh3.googleusercontent.com/HZNfOLpTg1c2LxRECaX8T-Ep4R94ahbyDmv48ay6DFCPEyj5gfp8Amgd8ZGsPeqkEuF8zpxsC-qSHEZcB8gXJDXm7eoYcv3Qzjg4N74k4diaxEQWULrWDp9Gc0XyE49OBBFRTgEns4jpR9Ql6owb9H_cyrhoAQDCbLm66Qc6Ul1JVXie5dTeEhmzovqNz3Y26TfLnaetRyy9RoTnyU7nnnV77S_6vr1K47Eh7pr5km6JDfjXQrX7Q4LPsG9NZNksEPNMGi79Nqq0o8SmqZ-LWIixAjb2Scd_Q4xrflWtKBqRVKK-x-cFVoLAZHxgFk9F_nKTm8ifBL89NnvV4C8rlL8mLpilCcC3UhLFIx0qkuN1uC8PHwRVozWO3o5T2Vo6VGtejhZZBrA_Z_urRlbwAj7ulODmldPrfItkQdB3rY0ZFnjw09yVE6qYWLYBde8TbIA5a84U3-cl-AEQZOUJmmhlHULprBN7EETwy6emaC0AIYaQOHyiNyMqyFMhxyiGuaiLIk7U4o-sK6N_Qfg4e7VzytJboBQYJXbSSfz88YjF2bwwfrMxqo9Ej1A3ziuGkUBDmsZd0yvi0GHINmQxCD2aFT1EGbKwV2161knGae33m2VoatRn5ANkNJPOxIcD6lA0WfIq2ILh_u427Q=w314-h104-no"></ion-img>
 <ion-content padding> 
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)" >
     <ion-grid style="padding:0%;">
       <ion-row>
         <ion-col style="padding:0%;"> 
           <ion-item>
               <ion-label position="floating">First Name</ion-label>
-              <ion-input clearInput></ion-input>
+              <ion-input clearInput ngModel name="firstname"></ion-input>
           </ion-item>
         </ion-col>
         <ion-col style="padding:0%;"> 
           <ion-item>
               <ion-label position="floating">Last Name</ion-label>
-              <ion-input clearInput ></ion-input>
+              <ion-input clearInput ngModel name="lastname"></ion-input>
           </ion-item>
         </ion-col>
       </ion-row>
     </ion-grid>
     <ion-item>
         <ion-label position="floating">Contact No.</ion-label>
-        <ion-input clearInput ></ion-input>
+        <ion-input clearInput type="number" ngModel name="contactnum"></ion-input>
     </ion-item>
     <ion-item>
         <ion-label position="floating">Email</ion-label>
-        <ion-input clearInput ></ion-input>
+        <ion-input clearInput ngModel name="email"></ion-input>
     </ion-item>
     <ion-item>
         <ion-label position="floating">Password</ion-label>
-        <ion-input clearInput ></ion-input>
+        <ion-input clearInput type="password" ngModel name="password"></ion-input>
     </ion-item>
     <br>
-    <ion-button color="main" expand="block" shape="round" mode="ios">Sign up</ion-button>
+    <ion-button type="submit" color="main" expand="block" shape="round" mode="ios">Sign up</ion-button>
     <p text-center>Have an account? <a href="http://localhost:8100/login" style="color: rgb(144, 61, 96); text-decoration: none">Log in</a> </p>
     
-
+    </form>
 </ion-content>
