@@ -15,6 +15,17 @@ export class HomePage implements OnInit{
 
   }
 
+  async success() {
+    const alert = await this.alertController.create({
+      header: 'Check Availability',
+      subHeader: 'Request Sent',
+      message: 'Wait for User Response before check in. Thank you!',
+      buttons: ['OK']
+    });
+
+    await alert.present();
+  }
+
   async presentModal() {
     console.log('shabu');
     const modal = await this.modalController.create({
@@ -27,7 +38,7 @@ export class HomePage implements OnInit{
     
     const alert = await this.alertController.create({
       header: 'Check Availability',
-      subHeader:'Input Date and Time of Check In. Wait for user response before booking. Thank you!!',
+      subHeader:'Input Date and Time of Check In.',
       inputs: [
         
         {
@@ -52,7 +63,7 @@ export class HomePage implements OnInit{
         }, {
           text: 'Ok',
           handler: () => {
-            console.log('Confirm Ok');
+            this.success();
           }
         }
       ]
