@@ -1,42 +1,27 @@
 <ion-header>
     <ion-toolbar>
       <ion-title > <ion-img class="logo-title" src="https://lh3.googleusercontent.com/HZNfOLpTg1c2LxRECaX8T-Ep4R94ahbyDmv48ay6DFCPEyj5gfp8Amgd8ZGsPeqkEuF8zpxsC-qSHEZcB8gXJDXm7eoYcv3Qzjg4N74k4diaxEQWULrWDp9Gc0XyE49OBBFRTgEns4jpR9Ql6owb9H_cyrhoAQDCbLm66Qc6Ul1JVXie5dTeEhmzovqNz3Y26TfLnaetRyy9RoTnyU7nnnV77S_6vr1K47Eh7pr5km6JDfjXQrX7Q4LPsG9NZNksEPNMGi79Nqq0o8SmqZ-LWIixAjb2Scd_Q4xrflWtKBqRVKK-x-cFVoLAZHxgFk9F_nKTm8ifBL89NnvV4C8rlL8mLpilCcC3UhLFIx0qkuN1uC8PHwRVozWO3o5T2Vo6VGtejhZZBrA_Z_urRlbwAj7ulODmldPrfItkQdB3rY0ZFnjw09yVE6qYWLYBde8TbIA5a84U3-cl-AEQZOUJmmhlHULprBN7EETwy6emaC0AIYaQOHyiNyMqyFMhxyiGuaiLIk7U4o-sK6N_Qfg4e7VzytJboBQYJXbSSfz88YjF2bwwfrMxqo9Ej1A3ziuGkUBDmsZd0yvi0GHINmQxCD2aFT1EGbKwV2161knGae33m2VoatRn5ANkNJPOxIcD6lA0WfIq2ILh_u427Q=w314-h104-no"></ion-img> </ion-title>
-      <ion-searchbar class="searchbar" mode="ios"></ion-searchbar>
+      <ion-searchbar class="searchbar" mode="ios" placeholder="Search Location"></ion-searchbar>
     </ion-toolbar>
   </ion-header>
 
-<ion-content padding>
+<ion-content >
   <ion-card>
       <ion-img src="https://meet.wustl.edu/wp-content/uploads/2017/04/Becker-Library-Student-study-space-Lower-Level-1.jpg"></ion-img>
       <ion-card-header>
-          <ion-card-title>₱ <span>200</span> </ion-card-title>
+          <ion-card-title>₱ <span>200 / day</span></ion-card-title>
       </ion-card-header>
       <ion-card-content>
           <p>
-            <ion-icon name="ios-people"></ion-icon>: 10 <br>
+            <ion-icon name="ios-people"></ion-icon>: 10 people<br>
             <ion-icon name="ios-laptop"></ion-icon>: 2 computers <br>
             <ion-icon name="ios-pin"></ion-icon>:31 Otero Mabayuan Olongapo City
           </p>
-          <ion-button color="main" size="small" fill="clear">Contact User</ion-button>
+          <ion-button color="main" size="small" fill="clear" (click)="checkAvailability()">Contact User</ion-button>
           
       </ion-card-content>
   </ion-card>
 
-  <ion-card>
-      <ion-img src="https://dailybruin.com/images/2017/10/web.-news.accstudyspace.AYeo_-640x409.jpg"></ion-img>
-      <ion-card-header>
-          <ion-card-title>₱ <span>150</span> </ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-          <p>
-            <ion-icon name="ios-people"></ion-icon>: 10 <br>
-            <ion-icon name="ios-laptop"></ion-icon>: 2 computers <br>
-            <ion-icon name="ios-pin"></ion-icon>:31 Otero Mabayuan Olongapo City
-          </p>
-          <ion-button color="main" size="small" fill="clear">Contact User</ion-button>
-          
-      </ion-card-content>
-  </ion-card>
 </ion-content>
 
 <ion-fab vertical="bottom" horizontal="end" slot="fixed" >
