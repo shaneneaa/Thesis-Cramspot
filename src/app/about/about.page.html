@@ -6,10 +6,24 @@
 
 <ion-content >
   <ion-card >
-    <ion-textarea  placeholder="Post Something here..."></ion-textarea>
-    <ion-button float-right type="submit" color="main" >Post</ion-button>
-
+    <form #f="ngForm" (ngSubmit)="post(f)">
+      <ion-textarea ngModel name="message"  placeholder="Post Something here..."></ion-textarea>
+      <ion-button float-right type="submit" color="main" >Post</ion-button>
+    </form> 
   </ion-card>
+  <ion-card>
+      <ion-item>
+        <ion-avatar>
+          <ion-img src="https://lumiere-a.akamaihd.net/v1/images/file_03162c1f.jpeg?width=1200&region=0%2C0%2C2000%2C2000&quality=8"></ion-img>
+        </ion-avatar>
+        <ion-label>Ver Legaspi</ion-label>
+      </ion-item>
+      <ion-card-content>
+          Looking for workspace na may 5 chairs and table sa tapinac
+      </ion-card-content>
+      <ion-button color="mainBtn" expand="block"(click)="presentModal()" >Suggest</ion-button>
+  </ion-card>
+  
   <ion-card>
       <ion-item>
         <ion-avatar>

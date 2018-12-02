@@ -5,16 +5,17 @@
 </ion-header>
 
 <ion-content padding>
+  <form #f="ngForm" (ngSubmit)="post(f)">
   <h4 text-center style="font-family:cursive;">Cramspot helps to manage and monetize your unused rooms, offices and desks...</h4>    
   <br>
   <ion-item>
     <ion-label>Workspace Type</ion-label>
-    <!-- <ion-select [interfaceOptions]="customPopoverOptions" interface="popover" placeholder="Select One">
+    <ion-select interface="popover" name="type" ngModel placeholder="Select One">
       <ion-select-option value="Coworking Space">Coworking Space</ion-select-option>
       <ion-select-option value="Corporate Office">Corporate Office</ion-select-option>
       <ion-select-option value="Startup Office">Startup Office</ion-select-option>
       <ion-select-option value="Empty Room">Empty Room</ion-select-option>
-    </ion-select> -->
+    </ion-select>
   </ion-item>
 
     <ion-grid style="padding:0%;">
@@ -22,15 +23,15 @@
         <ion-col size="5" style="padding:0%;"> 
           <ion-item>
             <ion-label>Rate:</ion-label>
-            <ion-input type="number" clearInput placeholder="300"></ion-input>
+            <ion-input type="number" name="rate" ngModel clearInput placeholder="300"></ion-input>
           </ion-item>
         </ion-col>
         <ion-col size="7" style="padding:0%;"> 
             <ion-item>
-                <!-- <ion-select [interfaceOptions]="customPopoverOptions" interface="popover" placeholder="/Hr">
-                  <ion-select-option value="hr">Hour</ion-select-option>
+                <ion-select name="rate_type" interface="popover" placeholder="/Hr">
+                  <ion-select-option value="hour">Hour</ion-select-option>
                   <ion-select-option value="day">Day</ion-select-option>
-                </ion-select> -->
+                </ion-select>
               </ion-item>
         </ion-col>
       </ion-row>
@@ -40,32 +41,32 @@
       <ion-label >
         Capacity:
       </ion-label>
-      <ion-input placeholder="5" type="number"></ion-input>
+      <ion-input name="capacity" ngModel placeholder="5" type="number"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label >
         Amenities:
       </ion-label>
-      <ion-input clearInput placeholder="(Computer, Wifi, books)"></ion-input>
+      <ion-input name="amenities" ngModel clearInput placeholder="(Computer, Wifi, books)"></ion-input>
     </ion-item>
     <ion-grid style="padding:0%;">
       <ion-row>
         <ion-col size="6" style="padding:0%;"> 
           <ion-item>
             <ion-label>Location:</ion-label>
-            <ion-input   placeholder="Unit#." style="padding:0%;"></ion-input>
+            <ion-input name="location_no" ngModel  placeholder="Unit#." style="padding:0%;"></ion-input>
           </ion-item>
         </ion-col>
         <ion-col size="6" style="padding:0%;"> 
             <ion-item>
-              <ion-input  clearInput placeholder="Street"></ion-input>
+              <ion-input name="location_street" ngModel clearInput placeholder="Street"></ion-input>
             </ion-item>
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col size="6" style="padding:0%;"> 
           <ion-item>
-            <ion-input clearInput placeholder="Barangay" style="padding:0%;"></ion-input>
+            <ion-input name="location_barangay" ngModel clearInput placeholder="Barangay" style="padding:0%;"></ion-input>
           </ion-item>
         </ion-col>
         <ion-col size="6" style="padding:0%;"> 
@@ -75,7 +76,7 @@
         </ion-col>
         <ion-col size="12" style="padding:0%;"> 
           <ion-item>
-            <ion-input  clearInput placeholder="Province"></ion-input>
+            <ion-input name="location_province" ngModel  clearInput placeholder="Province"></ion-input>
           </ion-item>
       </ion-col>
       </ion-row>
@@ -85,11 +86,11 @@
       <ion-input type="file"></ion-input>
     </ion-item>
     <br>
-    <ion-button type="submit" color="main" expand="block" shape="round">Post</ion-button>
+    <ion-button type="submit" color="main" expand="block"  shape="round">Post</ion-button>
     <p text-center>
       <a (click)="closeModal()" style="color: rgb(144, 61, 96); text-decoration: none">Cancel</a>
     </p> 
     
     
-
+  </form>
 </ion-content>

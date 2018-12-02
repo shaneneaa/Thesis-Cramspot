@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { FeedModalPage } from '../feed-modal/feed-modal.page';
+import { NgForm } from '@angular/forms';
 
 
 
@@ -19,5 +20,9 @@ export class AboutPage {
       componentProps: { value: 123 }
     });
     return await modal.present();
+  }
+
+  post(f:NgForm){
+    console.log(f.value);
   }
 }

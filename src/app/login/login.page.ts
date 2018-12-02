@@ -12,6 +12,8 @@ import { Router } from '@angular/router';
 })
 export class LoginPage implements OnInit {
 
+  logosrc:string = "assets/cramspotlogo.png";
+
   constructor(
     private auth: AuthenticationService,
     private router: Router
