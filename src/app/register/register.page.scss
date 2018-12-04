@@ -17,11 +17,14 @@
   --ion-color-shade:  rgb(131, 29, 72);
   --ion-color-tint: rgb(143, 71, 101);
 }
-  .logo-title{
-    margin-top: 40px;
-    padding: 0%;
-    height: 50px;
-  
-  }
+.logo-title{
+  margin-top: 40px;
+  padding: 0%;
+  height: 100px;
 
-  
+}
+
+  .ion-color-bg{
+    --ion-color-base: rgb(250, 234, 241);
+    --ion-color-base-rgb: 250, 234, 241;
+  }
