@@ -10,6 +10,8 @@ import { WorkspaceService } from '../services/workspace.service';
 })
 export class HomeModalPage implements OnInit {
 
+  private chosenImage;
+
   constructor(
     private modalController:ModalController,
     private workspaceService: WorkspaceService
@@ -22,8 +24,22 @@ export class HomeModalPage implements OnInit {
     this.modalController.dismiss();
   }
 
+  onChangeImage(event){
+    this.chosenImage = event.target.files[0];
+    console.log(this.chosenImage);
+  }
+
   post(f:NgForm){
-    this.workspaceService.postWorkspace(f.value)
+    //attach form value to form data
+    let formData = new FormData();
+    Object.keys(f.value).forEach(e=>{
+      formData.append(e,f.value[e]);
+    });
+
+    //append image to form data
+    formData.append('workspace_image',this.chosenImage);
+
+    this.workspaceService.postWorkspace(formData)
       .subscribe(data=>{
         
       });

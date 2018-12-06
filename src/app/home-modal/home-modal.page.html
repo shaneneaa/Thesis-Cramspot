@@ -83,7 +83,8 @@
     </ion-grid>
     <ion-item>
       <ion-label>Insert Image:</ion-label>
-      <ion-input type="file"></ion-input>
+      <ion-icon name="camera" (click)="imageupload.click()"></ion-icon>
+      <input type="file" #imageupload (change)="onChangeImage($event)" style="visibility:hidden;">
     </ion-item>
     <br>
     <ion-button type="submit" color="main" expand="block"  shape="round">Post</ion-button>
