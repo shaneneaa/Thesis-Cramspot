@@ -28,7 +28,7 @@
         </ion-col>
         <ion-col size="7" style="padding:0%;"> 
             <ion-item>
-                <ion-select name="rate_type" interface="popover" placeholder="/Hr">
+                <ion-select name="rate_type" ngModel interface="popover" placeholder="/Hr">
                   <ion-select-option value="hour">Hour</ion-select-option>
                   <ion-select-option value="day">Day</ion-select-option>
                 </ion-select>
@@ -71,7 +71,7 @@
         </ion-col>
         <ion-col size="6" style="padding:0%;"> 
             <ion-item>
-              <ion-input  clearInput placeholder="City"></ion-input>
+              <ion-input  name="location_city" ngModel  clearInput placeholder="City"></ion-input>
             </ion-item>
         </ion-col>
         <ion-col size="12" style="padding:0%;"> 

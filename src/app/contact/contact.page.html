@@ -7,7 +7,7 @@
 <ion-content>
   
   
-  <ion-item  href="#">
+  <!-- <ion-item  href="#">
     <ion-grid>
       <ion-row>
         <ion-col size="4">
@@ -33,15 +33,15 @@
      <span style="font-weight:bold ">John Carlo Miel</span> 
      sent you new message.
     </p>
-  </ion-item>
+  </ion-item> -->
 
-  <ion-item  href="#">
+  <ion-item *ngFor="let n of notifications" (click)="alertAvailability(n)">
     <ion-avatar slot="start">
       <img src="https://scontent.fmnl17-1.fna.fbcdn.net/v/t1.0-9/45275115_2318525838175720_8858014519197171712_n.jpg?_nc_cat=104&_nc_ht=scontent.fmnl17-1.fna&oh=105cb7257426c28fc443ba898d561e3b&oe=5C7AEAB1">
     </ion-avatar>
     <p>
-     <span style="font-weight:bold ">John Carlo Miel</span> 
-     checking for availability.
+     <span style="font-weight:bold ">{{ n.firstname }} {{ n.lastname }}</span> 
+      <span *ngIf="n.type==1"> checking for availability</span>
     </p>
   </ion-item>
 

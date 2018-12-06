@@ -3,6 +3,8 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { ModalController } from '@ionic/angular';
 import { HomeModalPage } from "../home-modal/home-modal.page";
 import { AlertController } from '@ionic/angular';
+import { WorkspaceService } from '../services/workspace.service';
+import { NotificationService } from '../services/notification.service';
 
 @Component({
   selector: 'app-home',
@@ -11,8 +13,25 @@ import { AlertController } from '@ionic/angular';
 })
 export class HomePage implements OnInit{
 
-  constructor(private splashScreen: SplashScreen,private modalController: ModalController,private alertController: AlertController){
+  workspaces;
 
+  constructor(
+    private modalController: ModalController,
+    private alertController: AlertController,
+    private workspaceService: WorkspaceService,
+    private notificationService: NotificationService
+    ){
+
+  }
+
+  ngOnInit(){
+    this.loadWorkspace(); 
+  }
+
+  loadWorkspace(){
+    this.workspaceService.getWorkspace().subscribe(data=>{
+      this.workspaces = data;
+    });
   }
 
   async success() {
@@ -34,7 +53,7 @@ export class HomePage implements OnInit{
     });
     return await modal.present();
   }
-  async checkAvailability() {
+  async checkAvailability(user_id:number) {
     
     const alert = await this.alertController.create({
       header: 'Check Availability',
@@ -42,13 +61,13 @@ export class HomePage implements OnInit{
       inputs: [
         
         {
-          name: 'checkIndate',
+          name: 'date',
           type: 'date',
           min: '2018-12-01'
  
         },
         {
-          name: 'checkIntime',
+          name: 'time',
           type: 'time'
         }
       ],
@@ -62,8 +81,18 @@ export class HomePage implements OnInit{
           }
         }, {
           text: 'Ok',
-          handler: () => {
-            this.success();
+          handler: (data) => {
+
+            let notification = {
+              to_user: user_id,
+              date_time:  data.date+'T'+data.time,
+              type: 1
+            };
+
+            this.notificationService.postNotification(notification)
+              .subscribe(data=>{
+                this.success();
+              });
           }
         }
       ]
@@ -71,9 +100,6 @@ export class HomePage implements OnInit{
     await alert.present();
     }
 
-  ngOnInit(){
-    this.splashScreen.show();
-    this.splashScreen.hide();
-  }
+
 
 }

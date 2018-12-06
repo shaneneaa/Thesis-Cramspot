@@ -11,6 +11,8 @@ import { AppComponent } from './app.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { FormsModule } from "@angular/forms";
 
+import { DatePipe } from '@angular/common';
+
 //Services 
 import { AuthenticationService } from './services/authentication.service';
 import { AuthGuard } from './auth.guard';
@@ -38,7 +40,8 @@ import { TokenInterceptorService } from "./services/token-interceptor.service";
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptorService,
       multi: true
-    }
+    },
+    DatePipe
   ],
   bootstrap: [AppComponent]
 })
