@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PopoverController, ModalController } from '@ionic/angular';
+import { PopoverController, ModalController, AlertController } from '@ionic/angular';
 import { NgForm } from '@angular/forms';
 import { WorkspaceService } from '../services/workspace.service';
 
@@ -14,10 +14,23 @@ export class HomeModalPage implements OnInit {
 
   constructor(
     private modalController:ModalController,
+    private alertController: AlertController,
     private workspaceService: WorkspaceService
     ) { }
 
   ngOnInit() {
+  }
+
+  async postAlert() {
+    const alert = await this.alertController.create({
+      header: 'Success',
+      subHeader: 'Your post is uploading',
+      message: 'Wait for admin to verify your workspace.',
+      buttons: ['OK']
+    });
+
+    await alert.present();
+    this.closeModal();
   }
 
   closeModal(){

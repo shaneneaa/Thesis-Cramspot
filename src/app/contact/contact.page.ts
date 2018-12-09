@@ -27,9 +27,9 @@ export class ContactPage implements OnInit {
 
   async alertAvailability(notification) {
     const alert = await this.alertController.create({
-      header: 'Alert',
-      subHeader:'Confirm if available',
-      message: this.datePipe.transform(notification.date_time,'short'),
+      header: 'Notification Details',
+      subHeader:'Confirm if available at '+this.datePipe.transform(notification.date_time,'short'),
+      message: 'details',
       buttons: [
          {
           text: 'Deny',

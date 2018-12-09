@@ -57,7 +57,7 @@ export class HomePage implements OnInit{
     
     const alert = await this.alertController.create({
       header: 'Check Availability',
-      subHeader:'Input Date and Time of Check In.',
+      subHeader:'Set date and duration',
       inputs: [
         
         {
