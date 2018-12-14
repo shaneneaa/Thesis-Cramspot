@@ -11,6 +11,7 @@ import { WorkspaceService } from '../services/workspace.service';
 export class HomeModalPage implements OnInit {
 
   private chosenImage;
+  private previewImage;
 
   constructor(
     private modalController:ModalController,
@@ -19,6 +20,7 @@ export class HomeModalPage implements OnInit {
     ) { }
 
   ngOnInit() {
+    this.previewImage = "assets/icon/upload.png";
   }
 
   async postAlert() {
@@ -39,7 +41,7 @@ export class HomeModalPage implements OnInit {
 
   onChangeImage(event){
     this.chosenImage = event.target.files[0];
-    console.log(this.chosenImage);
+    this.previewImage = URL.createObjectURL(event.target.files[0]);
   }
 
   post(f:NgForm){
@@ -48,13 +50,12 @@ export class HomeModalPage implements OnInit {
     Object.keys(f.value).forEach(e=>{
       formData.append(e,f.value[e]);
     });
-
     //append image to form data
     formData.append('workspace_image',this.chosenImage);
 
     this.workspaceService.postWorkspace(formData)
       .subscribe(data=>{
-        
+        this.postAlert();
       });
   }
 

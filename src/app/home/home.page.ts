@@ -43,6 +43,7 @@ export class HomePage implements OnInit{
     });
 
     await alert.present();
+
   }
 
   async presentModal() {
@@ -53,7 +54,7 @@ export class HomePage implements OnInit{
     });
     return await modal.present();
   }
-  async checkAvailability(user_id:number) {
+  async checkAvailability(user_id:number, space_id:number) {
     
     const alert = await this.alertController.create({
       header: 'Check Availability',
@@ -86,7 +87,8 @@ export class HomePage implements OnInit{
             let notification = {
               to_user: user_id,
               date_time:  data.date+'T'+data.time,
-              type: 1
+              type: 1,
+              workspace_id: space_id
             };
 
             this.notificationService.postNotification(notification)

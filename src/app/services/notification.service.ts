@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Api } from '../entities/api.class';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -16,7 +17,20 @@ export class NotificationService {
     return this.http.post(this.api_url,notification);
   }
 
-  fetchNotification(){
-    return this.http.get(this.api_url);
+  fetchNotification(): Observable<any[]>{
+    return this.http.get<any[]>(this.api_url);
   }
+
+  confirmNotification(notification){
+    return this.http.post(this.api_url+'/confirm',notification);
+  }
+
+  deleteNotification(notification){
+    return this.http.request('delete',this.api_url,{
+      headers: new HttpHeaders({
+          'Content-Type': 'application/json'
+      }),
+      body: notification});
+  }
+
 }

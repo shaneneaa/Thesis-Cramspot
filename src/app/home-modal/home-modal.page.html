@@ -88,19 +88,22 @@
             </ion-item>   
             <br>
             <ion-label position="stacked">Upload Image</ion-label>
-                <p text-center> <ion-icon name="camera" (click)="imageupload.click()" style="font-size:70px;"></ion-icon></p>
+                <p text-center> 
+                    <ion-img  (click)="imageupload.click()" style="margin:auto; width:110px;" [src]="previewImage"></ion-img>
+                </p>
                 <input type="file" #imageupload (change)="onChangeImage($event)" style="visibility:hidden;">
               
             <br>
+            <div padding>
+                <ion-button  type="submit" color="main" expand="block"  shape="round">Post</ion-button>
+                <p text-center>
+                  <a (click)="closeModal()" style="color: rgb(144, 61, 96); text-decoration: none">Cancel</a>
+                </p> 
+              </div>
         </form>
       </ion-card-content>
   </ion-card>
-  <div padding>
-    <ion-button  type="submit" color="main" expand="block"  shape="round" (click)="postAlert()">Post</ion-button>
-    <p text-center>
-      <a (click)="closeModal()" style="color: rgb(144, 61, 96); text-decoration: none">Cancel</a>
-    </p> 
-  </div>
+  
     
     
     

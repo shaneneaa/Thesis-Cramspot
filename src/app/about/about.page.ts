@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { FeedModalPage } from '../feed-modal/feed-modal.page';
 import { NgForm } from '@angular/forms';
+import { FeedService } from '../services/feed.service';
+import { UserService } from '../services/user.service';
 
 
 
@@ -10,19 +12,49 @@ import { NgForm } from '@angular/forms';
   templateUrl: 'about.page.html',
   styleUrls: ['about.page.scss']
 })
-export class AboutPage {
+export class AboutPage implements OnInit{
 
-  constructor( private modalController: ModalController){}
+  feeds:any[];
+  
+    constructor(
+      private modalController: ModalController,
+      private feedService:FeedService,
+      private userService: UserService
+      ){}
 
-  async presentModal() {
+  ngOnInit(): void {
+    this.loadData();
+  }
+
+  loadData(): any {
+    this.feedService.getFeed()
+      .subscribe(data =>{
+
+        data.map(feed=>{
+
+          this.userService.getUserById(feed.user_id)
+            .subscribe(user=>{
+              feed['user'] = user;
+            });
+
+        });
+        this.feeds = data;
+      });
+  }
+
+  async presentModal(feed) {
     const modal = await this.modalController.create({
       component: FeedModalPage,
-      componentProps: { value: 123 }
+      componentProps: { feed }
     });
     return await modal.present();
   }
 
   post(f:NgForm){
-    console.log(f.value);
+    this.feedService.postFeed(f.value)
+      .subscribe(data=>{
+        this.loadData();
+        f.resetForm();
+      });
   }
 }

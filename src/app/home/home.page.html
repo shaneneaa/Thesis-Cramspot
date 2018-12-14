@@ -18,7 +18,7 @@
             <ion-icon name="ios-laptop"></ion-icon> {{ w.amenities }} <br>
             <ion-icon name="ios-pin"></ion-icon> {{ w.location_no }} {{w.location_street}}  {{ w.location_barangay }} {{w.location_city}} {{w.location_province}}
           </p>
-          <ion-button color="main" size="small" fill="clear" (click)="checkAvailability(w.user_id)">check Availability</ion-button>
+          <ion-button color="main" size="small" fill="clear" (click)="checkAvailability(w.user_id,w.space_id)">check Availability</ion-button>
           
       </ion-card-content>
   </ion-card>

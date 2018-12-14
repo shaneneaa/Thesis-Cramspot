@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
   selector: 'app-more',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MorePage implements OnInit {
 
-  constructor() { }
+  constructor(
+    private auth: AuthenticationService
+  ) { }
 
   ngOnInit() {
+  }
+
+  logout(){
+    this.auth.logout();
   }
 
 }
